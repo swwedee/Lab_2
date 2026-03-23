@@ -18,15 +18,15 @@ int main()
     cout << "C (x y): ";
     cin >> C.x >> C.y;
 
-    // Герон
+   
     double S1 = heronArea(A,B,C);
     cout << "Area (Heron) = " << S1 << endl;
 
-    // Гаус
+    
     double S2 = gaussArea(A,B,C);
     cout << "Area (Gauss) = " << S2 << endl;
 
-    // перевірка
+    
     if(degenerate(A,B,C))
     {
         cout << "Triangle is degenerate\n";
