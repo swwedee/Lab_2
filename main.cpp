@@ -1,13 +1,7 @@
-#include <iostream>
 #include "triangle.h"
 
-using namespace std;
-
-int main()
-{
-    Point A,B,C,P;
-
-    cout << "Enter triangle:\n";
+int main() {
+    Point A, B, C;
 
     cout << "A (x y): ";
     cin >> A.x >> A.y;
@@ -18,35 +12,28 @@ int main()
     cout << "C (x y): ";
     cin >> C.x >> C.y;
 
-   
-    double S1 = heronArea(A,B,C);
-    cout << "Area (Heron) = " << S1 << endl;
-
-    
-    double S2 = gaussArea(A,B,C);
-    cout << "Area (Gauss) = " << S2 << endl;
-
-    
-    if(degenerate(A,B,C))
-    {
+    if (isDegenerate(A, B, C)) {
         cout << "Triangle is degenerate\n";
         return 0;
     }
+
+    cout << "\nArea (Heron) = " << heron(A, B, C) << endl;
+    cout << "Area (Gauss) = " << gauss(A, B, C) << endl;
 
     int n;
     cout << "How many points: ";
     cin >> n;
 
-    for(int i=0;i<n;i++)
-    {
+    for (int i = 0; i < n; i++) {
+        Point P;
         cout << "Point (x y): ";
         cin >> P.x >> P.y;
 
-        int r = checkPoint(A,B,C,P);
+        int res = checkPoint(A, B, C, P);
 
-        if(r==1)
+        if (res == 1)
             cout << "Inside\n";
-        else if(r==0)
+        else if (res == 2)
             cout << "On border\n";
         else
             cout << "Outside\n";
